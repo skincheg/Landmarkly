@@ -7,18 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67D7EB70281FE8F40047DF4E /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7EB6F281FE8F40047DF4E /* RegisterScreen.swift */; };
+		67D7EB72281FF32A0047DF4E /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7EB71281FF32A0047DF4E /* MainScreen.swift */; };
+		67F8D20028241E1700286AF3 /* ItemScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F8D1FF28241E1700286AF3 /* ItemScreen.swift */; };
+		67F8D20228242E5300286AF3 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F8D20128242E5300286AF3 /* Favourites.swift */; };
+		67F8D204282434DF00286AF3 /* CabinetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F8D203282434DF00286AF3 /* CabinetScreen.swift */; };
+		67F8D2062824365A00286AF3 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F8D2052824365A00286AF3 /* Tickets.swift */; };
+		67F8D2082824386400286AF3 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F8D2072824386400286AF3 /* MainViewModel.swift */; };
+		67F8D20B28243E8B00286AF3 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F8D20A28243E8B00286AF3 /* Menu.swift */; };
 		67FA7A15281F0A7900B14192 /* LandmarklyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA7A14281F0A7900B14192 /* LandmarklyApp.swift */; };
 		67FA7A17281F0A7900B14192 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA7A16281F0A7900B14192 /* ContentView.swift */; };
 		67FA7A19281F0A7B00B14192 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67FA7A18281F0A7B00B14192 /* Assets.xcassets */; };
 		67FA7A1C281F0A7B00B14192 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67FA7A1B281F0A7B00B14192 /* Preview Assets.xcassets */; };
+		67FA7A26281F19C800B14192 /* OnBoardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA7A25281F19C800B14192 /* OnBoardingScreen.swift */; };
+		67FA7A28281F221D00B14192 /* OnBoardingScreenLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FA7A27281F221D00B14192 /* OnBoardingScreenLogin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		67D7EB6F281FE8F40047DF4E /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
+		67D7EB71281FF32A0047DF4E /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		67F8D1FF28241E1700286AF3 /* ItemScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemScreen.swift; sourceTree = "<group>"; };
+		67F8D20128242E5300286AF3 /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
+		67F8D203282434DF00286AF3 /* CabinetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetScreen.swift; sourceTree = "<group>"; };
+		67F8D2052824365A00286AF3 /* Tickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tickets.swift; sourceTree = "<group>"; };
+		67F8D2072824386400286AF3 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		67F8D20A28243E8B00286AF3 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		67FA7A11281F0A7900B14192 /* Landmarkly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Landmarkly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67FA7A14281F0A7900B14192 /* LandmarklyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarklyApp.swift; sourceTree = "<group>"; };
 		67FA7A16281F0A7900B14192 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		67FA7A18281F0A7B00B14192 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		67FA7A1B281F0A7B00B14192 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		67FA7A25281F19C800B14192 /* OnBoardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingScreen.swift; sourceTree = "<group>"; };
+		67FA7A27281F221D00B14192 /* OnBoardingScreenLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingScreenLogin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67F8D20928243E7E00286AF3 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				67F8D20A28243E8B00286AF3 /* Menu.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		67FA7A08281F0A7900B14192 = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +79,9 @@
 		67FA7A13281F0A7900B14192 /* Landmarkly */ = {
 			isa = PBXGroup;
 			children = (
+				67FA7A24281F19A000B14192 /* Model */,
+				67FA7A23281F199A00B14192 /* ViewModel */,
+				67FA7A22281F199500B14192 /* View */,
 				67FA7A14281F0A7900B14192 /* LandmarklyApp.swift */,
 				67FA7A16281F0A7900B14192 /* ContentView.swift */,
 				67FA7A18281F0A7B00B14192 /* Assets.xcassets */,
@@ -65,6 +96,37 @@
 				67FA7A1B281F0A7B00B14192 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		67FA7A22281F199500B14192 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67F8D20928243E7E00286AF3 /* Subviews */,
+				67FA7A25281F19C800B14192 /* OnBoardingScreen.swift */,
+				67FA7A27281F221D00B14192 /* OnBoardingScreenLogin.swift */,
+				67D7EB6F281FE8F40047DF4E /* RegisterScreen.swift */,
+				67D7EB71281FF32A0047DF4E /* MainScreen.swift */,
+				67F8D1FF28241E1700286AF3 /* ItemScreen.swift */,
+				67F8D20128242E5300286AF3 /* Favourites.swift */,
+				67F8D203282434DF00286AF3 /* CabinetScreen.swift */,
+				67F8D2052824365A00286AF3 /* Tickets.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		67FA7A23281F199A00B14192 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67F8D2072824386400286AF3 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67FA7A24281F19A000B14192 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +199,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67D7EB72281FF32A0047DF4E /* MainScreen.swift in Sources */,
+				67F8D204282434DF00286AF3 /* CabinetScreen.swift in Sources */,
+				67F8D20028241E1700286AF3 /* ItemScreen.swift in Sources */,
+				67D7EB70281FE8F40047DF4E /* RegisterScreen.swift in Sources */,
+				67F8D20228242E5300286AF3 /* Favourites.swift in Sources */,
+				67FA7A26281F19C800B14192 /* OnBoardingScreen.swift in Sources */,
+				67F8D20B28243E8B00286AF3 /* Menu.swift in Sources */,
 				67FA7A17281F0A7900B14192 /* ContentView.swift in Sources */,
+				67FA7A28281F221D00B14192 /* OnBoardingScreenLogin.swift in Sources */,
 				67FA7A15281F0A7900B14192 /* LandmarklyApp.swift in Sources */,
+				67F8D2062824365A00286AF3 /* Tickets.swift in Sources */,
+				67F8D2082824386400286AF3 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
