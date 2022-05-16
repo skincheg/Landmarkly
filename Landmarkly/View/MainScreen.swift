@@ -6,14 +6,18 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct MainScreen: View {
     @EnvironmentObject var mainViewModel : MainViewModel
+    @StateObject var locationManager = LocationManager()
     var body: some View {
         ZStack {
             VStack {
                 Image("mainScreenImage")
+                    .interpolation(.high)
                     .resizable()
+                    .scaledToFit()
                     .frame(width: UIScreen.main.bounds.width - 10, height: 330)
                     .aspectRatio(contentMode: .fit)
                     .padding(.top, 40)
@@ -39,7 +43,9 @@ struct MainScreen: View {
                                     .foregroundColor(Color("pinkColor"))
                                     .shadow(color: Color("pinkColor").opacity(0.4), radius: 5, x: 0, y: 2)
                                     .overlay(
-                                        Image("arrow")
+                                        Image(systemName: "arrow.right")
+                                            .foregroundColor(.white)
+                                            .font(.system(size: 24, weight: .bold, design: .default))
                                             .shadow(color: .white.opacity(0.7), radius: 10, x: 0, y: 3)
                                         ,
                                         alignment: .center
@@ -70,91 +76,68 @@ struct MainScreen: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(alignment: .center, spacing: 0) {
-                        VStack(alignment: .leading, spacing: 0) {
-                            Image("image")
-                                .resizable()
-                                .frame(height: 130)
-                                .aspectRatio(contentMode: .fill)
-                                .cornerRadius(10)
-                            Text("Музей-Заповедник Аксакова")
-                                .fontWeight(.bold)
-                                .foregroundColor(Color("darkblueColor"))
-                                .font(.system(size: 18))
-                                .padding(.top, 10)
-                            HStack {
-                                Image("location")
+                        ForEach(mainViewModel.landmarks, id: \.id) { landmark in
+                            VStack(alignment: .leading, spacing: 0) {
+                                KFImage(URL(string: (landmark.images.first != nil) ? "https://diplom-app-skinxcheg.herokuapp.com?id=\(landmark.images.first ?? "")" : "http://placehold.jp/25/FF5F94/ffffff/\(Int(UIScreen.main.bounds.width - 100))x150.png"))
                                     .resizable()
-                                    .frame(width: 13, height: 16)
-                                    .aspectRatio(contentMode: .fit)
-                                Text("c. Аксаково, ул. Аксаковская")
-                                    .fontWeight(.light)
-                                    .foregroundColor(Color("darkblueColor"))
-                                    .font(.system(size: 14))
+                                    .frame(width: UIScreen.main.bounds.width - 100, height: 150)
+                                    .aspectRatio(contentMode: .fill)
+                                    .cornerRadius(10)
+                                HStack {
+                                    Text(landmark.name)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(Color("darkblueColor"))
+                                        .font(.system(size: 18))
+                                        .padding(.top, 10)
+                                    Spacer()
+                                }
+                                HStack {
+                                    Image("location")
+                                        .resizable()
+                                        .frame(width: 13, height: 16)
+                                        .aspectRatio(contentMode: .fit)
+                                    Text(landmark.address)
+                                        .fontWeight(.light)
+                                        .foregroundColor(Color("darkblueColor"))
+                                        .font(.system(size: 14))
+                                    Spacer()
+                                }
+                                .padding(.top, 0)
                             }
-                            .padding(.top, 0)
-                        }
-                        .padding(.vertical, 10)
-                        .padding(.horizontal, 10)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(Color("blueColor").opacity(0.4))
-                                .frame(height: 65)
-                            ,
-                            alignment: .bottom
-                        )
-                        .frame(maxWidth: UIScreen.main.bounds.width - 80)
-                        .padding(.leading, 30)
-                        .onTapGesture {
-                            withAnimation(.spring()) {
-                                mainViewModel.screen = "ItemScreen"
-                            }
-                        }
-                        
-                        VStack(alignment: .leading, spacing: 0) {
-                            Image("image")
-                                .resizable()
-                                .frame(height: 130)
-                                .aspectRatio(contentMode: .fill)
-                                .cornerRadius(10)
-                            Text("Музей-Заповедник Аксакова")
-                                .fontWeight(.bold)
-                                .foregroundColor(Color("darkblueColor"))
-                                .font(.system(size: 18))
-                                .padding(.top, 10)
-                            HStack {
-                                Image("location")
-                                    .resizable()
-                                    .frame(width: 13, height: 16)
-                                    .aspectRatio(contentMode: .fit)
-                                Text("c. Аксаково, ул. Аксаковская")
-                                    .fontWeight(.light)
-                                    .foregroundColor(Color("darkblueColor"))
-                                    .font(.system(size: 14))
-                            }
-                            .padding(.top, 0)
-                        }
-                        .padding(.vertical, 10)
-                        .padding(.horizontal, 10)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(Color("blueColor").opacity(0.4))
-                                .frame(height: 65)
-                            ,
-                            alignment: .bottom
-                        )
-                        .frame(maxWidth: UIScreen.main.bounds.width - 80)
-                        .padding(.leading, 15)
-                        .onTapGesture {
-                            withAnimation(.spring()) {
-                                mainViewModel.screen = "ItemScreen"
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 10)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .foregroundColor(Color("blueColor").opacity(0.4))
+                                    .frame(width: UIScreen.main.bounds.width - 70, height: 65)
+                                ,
+                                alignment: .bottom
+                            )
+                            .frame(maxWidth: UIScreen.main.bounds.width - 70)
+                            .padding(.leading, 30)
+                            .onTapGesture {
+                                withAnimation(.spring()) {
+                                    mainViewModel.currentLandmark = landmark
+                                    mainViewModel.prevScreen = "MainScreen"
+                                    mainViewModel.screen = "ItemScreen"
+                                }
                             }
                         }
                     }
+                    .padding(.trailing, 30)
                 }
-                .padding(.leading, -30)
+                .padding(.horizontal, -30)
             }
         }
         .padding(.horizontal, 30)
+        .onAppear {
+            mainViewModel.landmarksList {
+                
+            } error: {
+                
+            }
+
+        }
     }
 }
 

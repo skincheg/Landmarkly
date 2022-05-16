@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "compression-type" : "gpu-optimized-best",
       "filename" : "tickets.png",
       "idiom" : "universal",
       "scale" : "1x"
@@ -17,5 +18,9 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "compression-type" : "gpu-optimized-best",
+    "template-rendering-intent" : "original"
   }
 }

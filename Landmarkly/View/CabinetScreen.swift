@@ -17,7 +17,10 @@ struct CabinetScreen: View {
                 .frame(width: UIScreen.main.bounds.width - 60)
             Button {
                 withAnimation(.spring()) {
-                    mainViewModel.screen = "OnBoardingScreenLogin"
+                    mainViewModel.user = nil
+                    UserDefaults.standard.setValue(nil, forKey: "user")
+                    mainViewModel.isRegister = false
+                    mainViewModel.screen = "RegisterScreen"
                 }
             } label: {
                 Text("Exit")

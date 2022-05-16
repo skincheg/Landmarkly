@@ -35,6 +35,7 @@ struct OnBoardingScreenLogin: View {
                 Button(action: {
                     withAnimation(.spring()) {
                         mainViewModel.screen = "RegisterScreen"
+                        mainViewModel.isRegister = true
                     }
                 }, label: {
                     HStack(spacing: 15) {
@@ -44,6 +45,9 @@ struct OnBoardingScreenLogin: View {
                             .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 4)
                             .overlay(
                                 Image("register")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 22, height: 25)
                             )
                         Text("Создать аккаунт")
                             .fontWeight(.heavy)
@@ -62,6 +66,7 @@ struct OnBoardingScreenLogin: View {
                 Button(action: {
                     withAnimation(.spring()) {
                         mainViewModel.screen = "RegisterScreen"
+                        mainViewModel.isRegister = false
                     }
                 }, label: {
                     HStack(spacing: 15) {
@@ -71,6 +76,9 @@ struct OnBoardingScreenLogin: View {
                             .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 4)
                             .overlay(
                                 Image("login")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 20, height: 22)
                             )
                         Text("Войти в аккаунт")
                             .fontWeight(.heavy)

@@ -38,8 +38,9 @@ struct Tickets: View {
                                     .foregroundColor(Color("darkblueColor"))
                                 HStack {
                                     Image("tickets")
-                                        .frame(width: 13, height: 15)
+                                        .resizable()
                                         .aspectRatio(contentMode: .fit)
+                                        .frame(width: 12, height: 16)
                                     Text("29.08.2022 18:30")
                                         .fontWeight(.regular)
                                         .foregroundColor(Color("darkblueColor"))

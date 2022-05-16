@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct RegisterScreen: View {
-    @State var email = ""
     @EnvironmentObject var mainViewModel : MainViewModel
+    @State var showToastError = false
+    @State var showToastSuccess = false
+    @State var toastMessage = ""
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Image(mainViewModel.isRegister ? "registerScreenImage" : "loginScreenImage")
@@ -31,7 +34,7 @@ struct RegisterScreen: View {
                         .resizable()
                         .frame(width: 20, height: 20)
                         .aspectRatio(contentMode: .fit)
-                    TextField("E-mail", text: $email)
+                    TextField("E-mail", text: $mainViewModel.email)
                         .frame(height: 40)
                         .padding(.leading, 5)
                         .foregroundColor(Color("darkblueColor"))
@@ -43,6 +46,7 @@ struct RegisterScreen: View {
                             , alignment: .bottomLeading
                         )
                         .keyboardType(.emailAddress)
+                        .textInputAutocapitalization(.never)
                 }
                 
                 if mainViewModel.isRegister {
@@ -51,7 +55,7 @@ struct RegisterScreen: View {
                             .resizable()
                             .frame(width: 20, height: 22)
                             .aspectRatio(contentMode: .fit)
-                        TextField("Имя", text: $email)
+                        TextField("Имя", text: $mainViewModel.name)
                             .frame(height: 40)
                             .padding(.leading, 5)
                             .foregroundColor(Color("darkblueColor"))
@@ -69,9 +73,9 @@ struct RegisterScreen: View {
                 HStack {
                     Image("key")
                         .resizable()
-                        .frame(width: 20, height: 22)
+                        .frame(width: 20, height: 20)
                         .aspectRatio(contentMode: .fit)
-                    SecureField("Пароль", text: $email)
+                    SecureField("Пароль", text: $mainViewModel.password)
                         .frame(height: 40)
                         .padding(.leading, 5)
                         .foregroundColor(Color("darkblueColor"))
@@ -95,10 +99,43 @@ struct RegisterScreen: View {
                 withAnimation(.spring()) {
                     if mainViewModel.isRegister {
                         // register
-                        mainViewModel.screen = "MainScreen"
+                        mainViewModel.register {
+                            showToastSuccess = true
+                            toastMessage = "Успешная регистрация"
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                showToastSuccess = false
+                                toastMessage = ""
+                                mainViewModel.screen = "MainScreen"
+                            }
+                        } error: { errors in
+                            print(errors)
+                            showToastError = true
+                            toastMessage = errors.first?.msg ?? ""
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                showToastError = false
+                                toastMessage = ""
+                            }
+                        }
+
                     } else {
                         // login
-                        mainViewModel.screen = "MainScreen"
+                        mainViewModel.login {
+                            showToastSuccess = true
+                            toastMessage = "Успешная регистрация"
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                showToastSuccess = false
+                                toastMessage = ""
+                                mainViewModel.screen = "MainScreen"
+                            }
+                        } error: { errors in
+                            print(errors)
+                            showToastError = true
+                            toastMessage = errors.first?.msg ?? ""
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                showToastError = false
+                                toastMessage = ""
+                            }
+                        }
                     }
                 }
             }, label: {
@@ -136,6 +173,22 @@ struct RegisterScreen: View {
         .padding(.top, 70)
         .ignoresSafeArea(.all, edges: .all)
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height + 20)
+        .toast(isPresenting: $showToastError, duration: 2, tapToDismiss: true, alert: {
+            AlertToast(displayMode: .hud, type: .error(.red), subTitle: toastMessage)
+        }, onTap: {
+           //onTap would call either if `tapToDismis` is true/false
+           //If tapToDismiss is true, onTap would call and then dismis the alert
+        }, completion: {
+           //Completion block after dismiss
+        })
+        .toast(isPresenting: $showToastSuccess, duration: 2, tapToDismiss: true, alert: {
+            AlertToast(displayMode: .hud, type: .complete(.green), subTitle: toastMessage)
+        }, onTap: {
+           //onTap would call either if `tapToDismis` is true/false
+           //If tapToDismiss is true, onTap would call and then dismis the alert
+        }, completion: {
+           //Completion block after dismiss
+        })
     }
 }
 

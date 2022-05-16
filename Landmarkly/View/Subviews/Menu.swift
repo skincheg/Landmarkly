@@ -22,7 +22,10 @@ struct Menu: View {
                             mainViewModel.screen = "MainScreen"
                         }
                     } label: {
-                        Image("home")
+                        Image(mainViewModel.screen == "MainScreen" ? "home-active" : "home")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, height: 20)
                     }
                     Spacer()
                     Button {
@@ -30,7 +33,10 @@ struct Menu: View {
                             mainViewModel.screen = "Tickets"
                         }
                     } label: {
-                        Image("tickets")
+                        Image(mainViewModel.screen == "Tickets" ? "tickets-active" : "tickets")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 16, height: 22)
                     }
                     Spacer()
                     Button {
@@ -38,7 +44,10 @@ struct Menu: View {
                             mainViewModel.screen = "Favourites"
                         }
                     } label: {
-                        Image("bookmark")
+                        Image(mainViewModel.screen == "Favourites" ? "bookmark-active" : "bookmark")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 16, height: 22)
                     }
                     Spacer()
                     Button {
@@ -46,7 +55,10 @@ struct Menu: View {
                             mainViewModel.screen = "CabinetScreen"
                         }
                     } label: {
-                        Image("user1")
+                        Image(mainViewModel.screen == "CabinetScreen" ? "user" : "user1")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, height: 22)
                     }
 
                 }

@@ -5,6 +5,7 @@
       "scale" : "1x"
     },
     {
+      "compression-type" : "gpu-optimized-best",
       "filename" : "11@2x 1.png",
       "idiom" : "universal",
       "scale" : "2x"
@@ -17,5 +18,10 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "compression-type" : "gpu-optimized-best",
+    "preserves-vector-representation" : true,
+    "template-rendering-intent" : "original"
   }
 }

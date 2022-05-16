@@ -7,8 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67456706283002A00090E9BB /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 67456705283002A00090E9BB /* AlertToast */; };
+		674567082830081D0090E9BB /* CustomExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674567072830081D0090E9BB /* CustomExtension.swift */; };
+		6745670A283023740090E9BB /* CustomLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67456709283023740090E9BB /* CustomLocationManager.swift */; };
+		6745670D28302A890090E9BB /* PermissionsSwiftUIBluetooth in Frameworks */ = {isa = PBXBuildFile; productRef = 6745670C28302A890090E9BB /* PermissionsSwiftUIBluetooth */; };
+		6745670F28302A890090E9BB /* PermissionsSwiftUICalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 6745670E28302A890090E9BB /* PermissionsSwiftUICalendar */; };
+		6745671128302A890090E9BB /* PermissionsSwiftUICamera in Frameworks */ = {isa = PBXBuildFile; productRef = 6745671028302A890090E9BB /* PermissionsSwiftUICamera */; };
+		6745671328302A890090E9BB /* PermissionsSwiftUIContacts in Frameworks */ = {isa = PBXBuildFile; productRef = 6745671228302A890090E9BB /* PermissionsSwiftUIContacts */; };
+		6745671528302A890090E9BB /* PermissionsSwiftUIHealth in Frameworks */ = {isa = PBXBuildFile; productRef = 6745671428302A890090E9BB /* PermissionsSwiftUIHealth */; };
+		6745671728302A890090E9BB /* PermissionsSwiftUILocation in Frameworks */ = {isa = PBXBuildFile; productRef = 6745671628302A890090E9BB /* PermissionsSwiftUILocation */; };
+		6745671928302A890090E9BB /* PermissionsSwiftUILocationAlways in Frameworks */ = {isa = PBXBuildFile; productRef = 6745671828302A890090E9BB /* PermissionsSwiftUILocationAlways */; };
+		6745671B28302A890090E9BB /* PermissionsSwiftUIMicrophone in Frameworks */ = {isa = PBXBuildFile; productRef = 6745671A28302A890090E9BB /* PermissionsSwiftUIMicrophone */; };
+		6745671D28302A890090E9BB /* PermissionsSwiftUIMotion in Frameworks */ = {isa = PBXBuildFile; productRef = 6745671C28302A890090E9BB /* PermissionsSwiftUIMotion */; };
+		6745671F28302A890090E9BB /* PermissionsSwiftUIMusic in Frameworks */ = {isa = PBXBuildFile; productRef = 6745671E28302A890090E9BB /* PermissionsSwiftUIMusic */; };
+		6745672128302A890090E9BB /* PermissionsSwiftUINotification in Frameworks */ = {isa = PBXBuildFile; productRef = 6745672028302A890090E9BB /* PermissionsSwiftUINotification */; };
+		6745672328302A890090E9BB /* PermissionsSwiftUIPhoto in Frameworks */ = {isa = PBXBuildFile; productRef = 6745672228302A890090E9BB /* PermissionsSwiftUIPhoto */; };
+		6745672528302A890090E9BB /* PermissionsSwiftUIReminder in Frameworks */ = {isa = PBXBuildFile; productRef = 6745672428302A890090E9BB /* PermissionsSwiftUIReminder */; };
+		6745672728302A890090E9BB /* PermissionsSwiftUISiri in Frameworks */ = {isa = PBXBuildFile; productRef = 6745672628302A890090E9BB /* PermissionsSwiftUISiri */; };
+		6745672928302A890090E9BB /* PermissionsSwiftUISpeech in Frameworks */ = {isa = PBXBuildFile; productRef = 6745672828302A890090E9BB /* PermissionsSwiftUISpeech */; };
+		6745672B28302A890090E9BB /* PermissionsSwiftUITracking in Frameworks */ = {isa = PBXBuildFile; productRef = 6745672A28302A890090E9BB /* PermissionsSwiftUITracking */; };
+		6793A1CD282AE03400052D7C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6793A1CC282AE03400052D7C /* Alamofire */; };
+		6793A1D0282AE04300052D7C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 6793A1CF282AE04300052D7C /* Kingfisher */; };
 		67D7EB70281FE8F40047DF4E /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7EB6F281FE8F40047DF4E /* RegisterScreen.swift */; };
 		67D7EB72281FF32A0047DF4E /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7EB71281FF32A0047DF4E /* MainScreen.swift */; };
+		67DE8C30282AC98D00747D9D /* OrderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DE8C2F282AC98D00747D9D /* OrderScreen.swift */; };
+		67DE8C34282AD1BF00747D9D /* PaymentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DE8C33282AD1BF00747D9D /* PaymentScreen.swift */; };
+		67DE8C37282AD28800747D9D /* LoaderUI in Frameworks */ = {isa = PBXBuildFile; productRef = 67DE8C36282AD28800747D9D /* LoaderUI */; };
 		67F8D20028241E1700286AF3 /* ItemScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F8D1FF28241E1700286AF3 /* ItemScreen.swift */; };
 		67F8D20228242E5300286AF3 /* Favourites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F8D20128242E5300286AF3 /* Favourites.swift */; };
 		67F8D204282434DF00286AF3 /* CabinetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F8D203282434DF00286AF3 /* CabinetScreen.swift */; };
@@ -24,8 +48,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		674567072830081D0090E9BB /* CustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtension.swift; sourceTree = "<group>"; };
+		67456709283023740090E9BB /* CustomLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocationManager.swift; sourceTree = "<group>"; };
+		6793A1CA282ADFF800052D7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		67D7EB6F281FE8F40047DF4E /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		67D7EB71281FF32A0047DF4E /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		67DE8C2F282AC98D00747D9D /* OrderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderScreen.swift; sourceTree = "<group>"; };
+		67DE8C33282AD1BF00747D9D /* PaymentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentScreen.swift; sourceTree = "<group>"; };
 		67F8D1FF28241E1700286AF3 /* ItemScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemScreen.swift; sourceTree = "<group>"; };
 		67F8D20128242E5300286AF3 /* Favourites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favourites.swift; sourceTree = "<group>"; };
 		67F8D203282434DF00286AF3 /* CabinetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinetScreen.swift; sourceTree = "<group>"; };
@@ -46,6 +75,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6745671728302A890090E9BB /* PermissionsSwiftUILocation in Frameworks */,
+				6745671328302A890090E9BB /* PermissionsSwiftUIContacts in Frameworks */,
+				6745671D28302A890090E9BB /* PermissionsSwiftUIMotion in Frameworks */,
+				6745671928302A890090E9BB /* PermissionsSwiftUILocationAlways in Frameworks */,
+				6793A1D0282AE04300052D7C /* Kingfisher in Frameworks */,
+				6745672128302A890090E9BB /* PermissionsSwiftUINotification in Frameworks */,
+				67456706283002A00090E9BB /* AlertToast in Frameworks */,
+				6745671128302A890090E9BB /* PermissionsSwiftUICamera in Frameworks */,
+				6745672328302A890090E9BB /* PermissionsSwiftUIPhoto in Frameworks */,
+				67DE8C37282AD28800747D9D /* LoaderUI in Frameworks */,
+				6745672928302A890090E9BB /* PermissionsSwiftUISpeech in Frameworks */,
+				6745671B28302A890090E9BB /* PermissionsSwiftUIMicrophone in Frameworks */,
+				6745672528302A890090E9BB /* PermissionsSwiftUIReminder in Frameworks */,
+				6745670F28302A890090E9BB /* PermissionsSwiftUICalendar in Frameworks */,
+				6745670D28302A890090E9BB /* PermissionsSwiftUIBluetooth in Frameworks */,
+				6745671528302A890090E9BB /* PermissionsSwiftUIHealth in Frameworks */,
+				6745672B28302A890090E9BB /* PermissionsSwiftUITracking in Frameworks */,
+				6793A1CD282AE03400052D7C /* Alamofire in Frameworks */,
+				6745672728302A890090E9BB /* PermissionsSwiftUISiri in Frameworks */,
+				6745671F28302A890090E9BB /* PermissionsSwiftUIMusic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +128,7 @@
 		67FA7A13281F0A7900B14192 /* Landmarkly */ = {
 			isa = PBXGroup;
 			children = (
+				6793A1CA282ADFF800052D7C /* Info.plist */,
 				67FA7A24281F19A000B14192 /* Model */,
 				67FA7A23281F199A00B14192 /* ViewModel */,
 				67FA7A22281F199500B14192 /* View */,
@@ -110,6 +160,8 @@
 				67F8D20128242E5300286AF3 /* Favourites.swift */,
 				67F8D203282434DF00286AF3 /* CabinetScreen.swift */,
 				67F8D2052824365A00286AF3 /* Tickets.swift */,
+				67DE8C2F282AC98D00747D9D /* OrderScreen.swift */,
+				67DE8C33282AD1BF00747D9D /* PaymentScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -125,6 +177,8 @@
 		67FA7A24281F19A000B14192 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				674567072830081D0090E9BB /* CustomExtension.swift */,
+				67456709283023740090E9BB /* CustomLocationManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -145,6 +199,28 @@
 			dependencies = (
 			);
 			name = Landmarkly;
+			packageProductDependencies = (
+				67DE8C36282AD28800747D9D /* LoaderUI */,
+				6793A1CC282AE03400052D7C /* Alamofire */,
+				6793A1CF282AE04300052D7C /* Kingfisher */,
+				67456705283002A00090E9BB /* AlertToast */,
+				6745670C28302A890090E9BB /* PermissionsSwiftUIBluetooth */,
+				6745670E28302A890090E9BB /* PermissionsSwiftUICalendar */,
+				6745671028302A890090E9BB /* PermissionsSwiftUICamera */,
+				6745671228302A890090E9BB /* PermissionsSwiftUIContacts */,
+				6745671428302A890090E9BB /* PermissionsSwiftUIHealth */,
+				6745671628302A890090E9BB /* PermissionsSwiftUILocation */,
+				6745671828302A890090E9BB /* PermissionsSwiftUILocationAlways */,
+				6745671A28302A890090E9BB /* PermissionsSwiftUIMicrophone */,
+				6745671C28302A890090E9BB /* PermissionsSwiftUIMotion */,
+				6745671E28302A890090E9BB /* PermissionsSwiftUIMusic */,
+				6745672028302A890090E9BB /* PermissionsSwiftUINotification */,
+				6745672228302A890090E9BB /* PermissionsSwiftUIPhoto */,
+				6745672428302A890090E9BB /* PermissionsSwiftUIReminder */,
+				6745672628302A890090E9BB /* PermissionsSwiftUISiri */,
+				6745672828302A890090E9BB /* PermissionsSwiftUISpeech */,
+				6745672A28302A890090E9BB /* PermissionsSwiftUITracking */,
+			);
 			productName = Landmarkly;
 			productReference = 67FA7A11281F0A7900B14192 /* Landmarkly.app */;
 			productType = "com.apple.product-type.application";
@@ -170,9 +246,16 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ru,
 			);
 			mainGroup = 67FA7A08281F0A7900B14192;
+			packageReferences = (
+				67DE8C35282AD28800747D9D /* XCRemoteSwiftPackageReference "LoaderUI" */,
+				6793A1CB282AE03400052D7C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				6793A1CE282AE04300052D7C /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				67456704283002A00090E9BB /* XCRemoteSwiftPackageReference "AlertToast" */,
+				6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */,
+			);
 			productRefGroup = 67FA7A12281F0A7900B14192 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -204,8 +287,12 @@
 				67F8D20028241E1700286AF3 /* ItemScreen.swift in Sources */,
 				67D7EB70281FE8F40047DF4E /* RegisterScreen.swift in Sources */,
 				67F8D20228242E5300286AF3 /* Favourites.swift in Sources */,
+				6745670A283023740090E9BB /* CustomLocationManager.swift in Sources */,
+				67DE8C30282AC98D00747D9D /* OrderScreen.swift in Sources */,
+				674567082830081D0090E9BB /* CustomExtension.swift in Sources */,
 				67FA7A26281F19C800B14192 /* OnBoardingScreen.swift in Sources */,
 				67F8D20B28243E8B00286AF3 /* Menu.swift in Sources */,
+				67DE8C34282AD1BF00747D9D /* PaymentScreen.swift in Sources */,
 				67FA7A17281F0A7900B14192 /* ContentView.swift in Sources */,
 				67FA7A28281F221D00B14192 /* OnBoardingScreenLogin.swift in Sources */,
 				67FA7A15281F0A7900B14192 /* LandmarklyApp.swift in Sources */,
@@ -267,7 +354,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -321,7 +408,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -339,8 +426,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Landmarkly/Preview Content\"";
+				DEVELOPMENT_TEAM = XT98J42MX2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Landmarkly/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ваша геопозиция необходима для постороения маршрутов до достопримечательностей";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -367,8 +457,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Landmarkly/Preview Content\"";
+				DEVELOPMENT_TEAM = XT98J42MX2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Landmarkly/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ваша геопозиция необходима для постороения маршрутов до достопримечательностей";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -409,6 +502,152 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		67456704283002A00090E9BB /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jevonmao/PermissionsSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		6793A1CB282AE03400052D7C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		6793A1CE282AE04300052D7C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		67DE8C35282AD28800747D9D /* XCRemoteSwiftPackageReference "LoaderUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ninjaprox/LoaderUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		67456705283002A00090E9BB /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67456704283002A00090E9BB /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
+		6745670C28302A890090E9BB /* PermissionsSwiftUIBluetooth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUIBluetooth;
+		};
+		6745670E28302A890090E9BB /* PermissionsSwiftUICalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUICalendar;
+		};
+		6745671028302A890090E9BB /* PermissionsSwiftUICamera */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUICamera;
+		};
+		6745671228302A890090E9BB /* PermissionsSwiftUIContacts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUIContacts;
+		};
+		6745671428302A890090E9BB /* PermissionsSwiftUIHealth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUIHealth;
+		};
+		6745671628302A890090E9BB /* PermissionsSwiftUILocation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUILocation;
+		};
+		6745671828302A890090E9BB /* PermissionsSwiftUILocationAlways */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUILocationAlways;
+		};
+		6745671A28302A890090E9BB /* PermissionsSwiftUIMicrophone */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUIMicrophone;
+		};
+		6745671C28302A890090E9BB /* PermissionsSwiftUIMotion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUIMotion;
+		};
+		6745671E28302A890090E9BB /* PermissionsSwiftUIMusic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUIMusic;
+		};
+		6745672028302A890090E9BB /* PermissionsSwiftUINotification */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUINotification;
+		};
+		6745672228302A890090E9BB /* PermissionsSwiftUIPhoto */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUIPhoto;
+		};
+		6745672428302A890090E9BB /* PermissionsSwiftUIReminder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUIReminder;
+		};
+		6745672628302A890090E9BB /* PermissionsSwiftUISiri */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUISiri;
+		};
+		6745672828302A890090E9BB /* PermissionsSwiftUISpeech */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUISpeech;
+		};
+		6745672A28302A890090E9BB /* PermissionsSwiftUITracking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
+			productName = PermissionsSwiftUITracking;
+		};
+		6793A1CC282AE03400052D7C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6793A1CB282AE03400052D7C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		6793A1CF282AE04300052D7C /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6793A1CE282AE04300052D7C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		67DE8C36282AD28800747D9D /* LoaderUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67DE8C35282AD28800747D9D /* XCRemoteSwiftPackageReference "LoaderUI" */;
+			productName = LoaderUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 67FA7A09281F0A7900B14192 /* Project object */;
 }

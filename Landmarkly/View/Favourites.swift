@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct FavouritesScreen: View {
     @EnvironmentObject var mainViewModel : MainViewModel
@@ -25,112 +26,44 @@ struct FavouritesScreen: View {
                     
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(spacing: 20) {
-                            // MARK: Item
-                            VStack(alignment: .leading, spacing: 5) {
-                                Image("image")
-                                    .resizable()
-                                    .frame(width: UIScreen.main.bounds.width - 80, height: 140)
-                                    .aspectRatio(contentMode: .fill)
-                                    .cornerRadius(10)
-                                Text("Памятник погибшим в ВОВ")
-                                    .fontWeight(.bold)
-                                    .font(.system(size: 19))
-                                    .foregroundColor(Color("darkblueColor"))
-                                HStack {
-                                    Image("location")
-                                        .frame(width: 13, height: 15)
-                                        .aspectRatio(contentMode: .fit)
-                                    Text("c. Аксаково, ул. Аксаковская")
-                                        .fontWeight(.regular)
-                                        .foregroundColor(Color("darkblueColor"))
-                                        .font(.system(size: 13))
+                            ForEach(mainViewModel.favouritesLandmarks, id: \.id) { landmark in
+                                // MARK: Item
+                                VStack(spacing: 5) {
+                                    KFImage(URL(string: (landmark.images.first != nil) ? "https://diplom-app-skinxcheg.herokuapp.com?id=\(landmark.images.first ?? "")" : "http://placehold.jp/25/FF5F94/ffffff/\(Int(UIScreen.main.bounds.width - 80))x140.png"))
+                                        .resizable()
+                                        .frame(width: UIScreen.main.bounds.width - 80, height: 140)
+                                        .aspectRatio(contentMode: .fill)
+                                        .cornerRadius(10)
+                                    HStack {
+                                        Text(landmark.name)
+                                            .fontWeight(.bold)
+                                            .font(.system(size: 19))
+                                            .foregroundColor(Color("darkblueColor"))
+                                        Spacer()
+                                    }
+                                    HStack {
+                                        Image("location")
+                                            .resizable()
+                                            .frame(width: 13, height: 15)
+                                            .aspectRatio(contentMode: .fit)
+                                        Text(landmark.address)
+                                            .fontWeight(.regular)
+                                            .foregroundColor(Color("darkblueColor"))
+                                            .font(.system(size: 13))
+                                        Spacer()
+                                    }
+                                }
+                                .frame(width: UIScreen.main.bounds.width - 60, height: 200)
+                                .padding(.horizontal, 10)
+                                .padding(.vertical, 10)
+                                .background(Color("blueColor").opacity(0.2))
+                                .cornerRadius(10)
+                                .onTapGesture {
+                                    mainViewModel.currentLandmark = landmark
+                                    mainViewModel.prevScreen = "Favourites"
+                                    mainViewModel.screen = "ItemScreen"
                                 }
                             }
-                            .frame(width: UIScreen.main.bounds.width - 60, height: 200)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 10)
-                            .background(Color("blueColor").opacity(0.2))
-                            .cornerRadius(10)
-                            
-                            VStack(alignment: .leading, spacing: 5) {
-                                Image("image")
-                                    .resizable()
-                                    .frame(width: UIScreen.main.bounds.width - 80, height: 140)
-                                    .aspectRatio(contentMode: .fill)
-                                    .cornerRadius(10)
-                                Text("Памятник погибшим в ВОВ")
-                                    .fontWeight(.bold)
-                                    .font(.system(size: 19))
-                                    .foregroundColor(Color("darkblueColor"))
-                                HStack {
-                                    Image("location")
-                                        .frame(width: 13, height: 15)
-                                        .aspectRatio(contentMode: .fit)
-                                    Text("c. Аксаково, ул. Аксаковская")
-                                        .fontWeight(.regular)
-                                        .foregroundColor(Color("darkblueColor"))
-                                        .font(.system(size: 13))
-                                }
-                            }
-                            .frame(width: UIScreen.main.bounds.width - 60, height: 200)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 10)
-                            .background(Color("blueColor").opacity(0.2))
-                            .cornerRadius(10)
-                            
-                            VStack(alignment: .leading, spacing: 5) {
-                                Image("image")
-                                    .resizable()
-                                    .frame(width: UIScreen.main.bounds.width - 80, height: 140)
-                                    .aspectRatio(contentMode: .fill)
-                                    .cornerRadius(10)
-                                Text("Памятник погибшим в ВОВ")
-                                    .fontWeight(.bold)
-                                    .font(.system(size: 19))
-                                    .foregroundColor(Color("darkblueColor"))
-                                HStack {
-                                    Image("location")
-                                        .frame(width: 13, height: 15)
-                                        .aspectRatio(contentMode: .fit)
-                                    Text("c. Аксаково, ул. Аксаковская")
-                                        .fontWeight(.regular)
-                                        .foregroundColor(Color("darkblueColor"))
-                                        .font(.system(size: 13))
-                                }
-                            }
-                            .frame(width: UIScreen.main.bounds.width - 60, height: 200)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 10)
-                            .background(Color("blueColor").opacity(0.2))
-                            .cornerRadius(10)
-                            
-                            VStack(alignment: .leading, spacing: 5) {
-                                Image("image")
-                                    .resizable()
-                                    .frame(width: UIScreen.main.bounds.width - 80, height: 140)
-                                    .aspectRatio(contentMode: .fill)
-                                    .cornerRadius(10)
-                                Text("Памятник погибшим в ВОВ")
-                                    .fontWeight(.bold)
-                                    .font(.system(size: 19))
-                                    .foregroundColor(Color("darkblueColor"))
-                                HStack {
-                                    Image("location")
-                                        .frame(width: 13, height: 15)
-                                        .aspectRatio(contentMode: .fit)
-                                    Text("c. Аксаково, ул. Аксаковская")
-                                        .fontWeight(.regular)
-                                        .foregroundColor(Color("darkblueColor"))
-                                        .font(.system(size: 13))
-                                }
-                            }
-                            .frame(width: UIScreen.main.bounds.width - 60, height: 200)
-                            .padding(.horizontal, 10)
-                            .padding(.vertical, 10)
-                            .background(Color("blueColor").opacity(0.2))
-                            .cornerRadius(10)
-                            .padding(.bottom, 100)
-                            
                         }
                     }
                 }

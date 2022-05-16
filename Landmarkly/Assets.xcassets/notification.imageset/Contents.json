@@ -1,7 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Notifications 1.png",
+      "compression-type" : "gpu-optimized-best",
+      "filename" : "Vector.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -17,5 +18,9 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "compression-type" : "gpu-optimized-best",
+    "template-rendering-intent" : "original"
   }
 }
