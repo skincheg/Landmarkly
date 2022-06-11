@@ -9,6 +9,7 @@ import SwiftUI
 import PermissionsSwiftUILocation
 
 struct ContentView: View {
+    @AppStorage("didLaunchBefore") var didLaunchBefore: Bool = false
     @StateObject var mainViewModel : MainViewModel = MainViewModel()
     @State var isShowHeader = true
     @State var isShowModal = true
@@ -17,7 +18,11 @@ struct ContentView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 ScrollViewReader { value in
                     VStack {
-                        if (mainViewModel.user == nil) {
+                        VStack {
+                            if mainViewModel.screen == "VideoScreen" && !didLaunchBefore {
+                                VideoScreen()
+                                    .environmentObject(mainViewModel)
+                            }
                             if mainViewModel.screen == "OnBoardingScreen" {
                                 OnBoardingScreen()
                                     .environmentObject(mainViewModel)
@@ -30,13 +35,14 @@ struct ContentView: View {
                                 RegisterScreen()
                                     .environmentObject(mainViewModel)
                             }
-                        } else {
                             if mainViewModel.screen == "MainScreen" {
                                 MainScreen()
                                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                                     .padding(.bottom, 100)
                                     .environmentObject(mainViewModel)
                             }
+                        }
+                        VStack {
                             if mainViewModel.screen == "ItemScreen" {
                                 ItemScreen()
                                     .environmentObject(mainViewModel)
@@ -49,6 +55,11 @@ struct ContentView: View {
                             }
                             if mainViewModel.screen == "CabinetScreen" {
                                 CabinetScreen()
+                                    .environmentObject(mainViewModel)
+                            }
+                            if mainViewModel.screen == "AllLandmarks" {
+                                AllLandmarks()
+                                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                                     .environmentObject(mainViewModel)
                             }
                             if mainViewModel.screen == "Tickets" {
@@ -68,11 +79,6 @@ struct ContentView: View {
                                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                                     .environmentObject(mainViewModel)
                             }
-                            if mainViewModel.screen == "AllLandmarks" {
-                                AllLandmarks()
-                                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                                    .environmentObject(mainViewModel)
-                            }
                         }
                     }
                     .id(1)
@@ -84,12 +90,12 @@ struct ContentView: View {
                 }
             }
             
-            if mainViewModel.screen != "ItemScreen" && mainViewModel.screen != "OnBoardingScreen" && mainViewModel.screen != "OnBoardingScreenLogin" && mainViewModel.screen != "RegisterScreen" && mainViewModel.screen != "OrderScreen" && mainViewModel.screen != "PaymentScreen" && mainViewModel.screen != "AllLandmarks" {
+            if mainViewModel.screen != "ItemScreen" && mainViewModel.screen != "VideoScreen" && mainViewModel.screen != "OnBoardingScreen" && mainViewModel.screen != "OnBoardingScreenLogin" && mainViewModel.screen != "RegisterScreen" && mainViewModel.screen != "OrderScreen" && mainViewModel.screen != "PaymentScreen" && mainViewModel.screen != "AllLandmarks" {
                 Menu()
                     .environmentObject(mainViewModel)
             }
             
-            if mainViewModel.screen != "ItemScreen" && mainViewModel.screen != "OnBoardingScreen" && mainViewModel.screen != "OnBoardingScreenLogin" && mainViewModel.screen != "RegisterScreen" && mainViewModel.screen != "OrderScreen" && mainViewModel.screen != "PaymentScreen" && mainViewModel.screen != "AllLandmarks" && mainViewModel.screen != "CabinetScreen" {
+            if mainViewModel.screen != "ItemScreen" && mainViewModel.screen != "VideoScreen" && mainViewModel.screen != "OnBoardingScreen" && mainViewModel.screen != "OnBoardingScreenLogin" && mainViewModel.screen != "RegisterScreen" && mainViewModel.screen != "OrderScreen" && mainViewModel.screen != "PaymentScreen" && mainViewModel.screen != "AllLandmarks" && mainViewModel.screen != "CabinetScreen" {
                 HStack {
                     Image("profile-image")
                         .resizable()
@@ -99,10 +105,13 @@ struct ContentView: View {
                         Text("С возвращением ✋")
                             .foregroundColor(Color("darkblueColor"))
                             .font(.system(size: 12))
-                        Text(mainViewModel.user?.name ?? "")
-                            .fontWeight(.bold)
-                            .font(.system(size: 16))
-                            .foregroundColor(Color("darkblueColor"))
+                        
+                        if mainViewModel.user != nil {
+                            Text(mainViewModel.user?.name ?? "")
+                                .fontWeight(.bold)
+                                .font(.system(size: 16))
+                                .foregroundColor(Color("darkblueColor"))
+                        }
                     }
                     Spacer()
                 }
@@ -115,6 +124,12 @@ struct ContentView: View {
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         .preferredColorScheme(.light)
         .JMModal(showModal: $isShowModal, for: [.location])
+        
+        .onAppear {
+            if didLaunchBefore {
+                mainViewModel.screen = "MainScreen"
+            }
+        }
     }
 }
 

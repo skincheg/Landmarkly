@@ -75,6 +75,9 @@ struct OnBoardingScreen: View {
         .background(Color("blueColor"))
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         .ignoresSafeArea(.all, edges: .all)
+        .onAppear {
+            UserDefaults.standard.set(true, forKey: "didLaunchBefore")
+        }
     }
 }
 

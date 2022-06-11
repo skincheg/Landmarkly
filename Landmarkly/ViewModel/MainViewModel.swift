@@ -17,7 +17,7 @@ class MainViewModel : ObservableObject {
     @Published var password : String = "123123"
     @Published var name : String = "Артур"
     @Published var user : User? = try? UserDefaults.standard.get(objectType: User.self, forKey: "user")
-    @Published var screen = "OnBoardingScreen"
+    @Published var screen = "VideoScreen"
     @Published var prevScreen = ""
     @Published var favouritesLandmarks : [Landmark] = try! (UserDefaults.standard.get(objectType: [Landmark].self, forKey: "favouritesLandmarks") ?? [])
     @Published var locationManager = LocationManager()
@@ -28,7 +28,7 @@ class MainViewModel : ObservableObject {
     private let url = "http://194.67.104.237:3000"
     
     init() {
-        screen = user == nil ? "OnBoardingScreen" : "MainScreen"
+        screen = user == nil ? "VideoScreen" : "MainScreen"
     }
     
     func register(success: @escaping() -> Void, error: @escaping(_ errors: [Error]) -> Void) {

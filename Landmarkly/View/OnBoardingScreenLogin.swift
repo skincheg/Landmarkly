@@ -87,6 +87,7 @@ struct OnBoardingScreenLogin: View {
                     }
                 })
                 .padding(.leading, 30)
+
             }
             .frame(width: UIScreen.main.bounds.width)
             .padding(.top, 30)
@@ -104,6 +105,30 @@ struct OnBoardingScreenLogin: View {
                         .frame(width: UIScreen.main.bounds.width - 60, height: UIScreen.main.bounds.height / 3)
                         .aspectRatio(contentMode: .fit)
                 ), alignment: .top
+        )
+        .overlay(
+            Button {
+                withAnimation(.spring()) {
+                    mainViewModel.screen = "MainScreen"
+                }
+            } label: {
+                Text("Войти как гость")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .font(.system(size: 14))
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 7)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(Color("pinkColor"))
+                            .shadow(color: Color("pinkColor").opacity(0.4), radius: 5, x: 0, y: 2)
+                    )
+            }
+                .padding(.top, 50)
+                .padding(.trailing, 20)
+            
+            ,
+            alignment: .topTrailing
         )
     }
 }

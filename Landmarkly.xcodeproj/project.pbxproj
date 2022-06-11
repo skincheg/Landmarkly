@@ -27,6 +27,8 @@
 		6745672928302A890090E9BB /* PermissionsSwiftUISpeech in Frameworks */ = {isa = PBXBuildFile; productRef = 6745672828302A890090E9BB /* PermissionsSwiftUISpeech */; };
 		6745672B28302A890090E9BB /* PermissionsSwiftUITracking in Frameworks */ = {isa = PBXBuildFile; productRef = 6745672A28302A890090E9BB /* PermissionsSwiftUITracking */; };
 		67821BAC2854D94E008D9D8D /* AllLandmarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67821BAB2854D94E008D9D8D /* AllLandmarks.swift */; };
+		67821BAE2854FE75008D9D8D /* VideoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67821BAD2854FE75008D9D8D /* VideoScreen.swift */; };
+		67821BB128550252008D9D8D /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 67821BB028550252008D9D8D /* YouTubePlayerKit */; };
 		6793A1CD282AE03400052D7C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6793A1CC282AE03400052D7C /* Alamofire */; };
 		6793A1D0282AE04300052D7C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 6793A1CF282AE04300052D7C /* Kingfisher */; };
 		67D7EB70281FE8F40047DF4E /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7EB6F281FE8F40047DF4E /* RegisterScreen.swift */; };
@@ -52,6 +54,7 @@
 		674567072830081D0090E9BB /* CustomExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExtension.swift; sourceTree = "<group>"; };
 		67456709283023740090E9BB /* CustomLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocationManager.swift; sourceTree = "<group>"; };
 		67821BAB2854D94E008D9D8D /* AllLandmarks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLandmarks.swift; sourceTree = "<group>"; };
+		67821BAD2854FE75008D9D8D /* VideoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoScreen.swift; sourceTree = "<group>"; };
 		6793A1CA282ADFF800052D7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		67D7EB6F281FE8F40047DF4E /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 		67D7EB71281FF32A0047DF4E /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 				6745671B28302A890090E9BB /* PermissionsSwiftUIMicrophone in Frameworks */,
 				6745672528302A890090E9BB /* PermissionsSwiftUIReminder in Frameworks */,
 				6745670F28302A890090E9BB /* PermissionsSwiftUICalendar in Frameworks */,
+				67821BB128550252008D9D8D /* YouTubePlayerKit in Frameworks */,
 				6745670D28302A890090E9BB /* PermissionsSwiftUIBluetooth in Frameworks */,
 				6745671528302A890090E9BB /* PermissionsSwiftUIHealth in Frameworks */,
 				6745672B28302A890090E9BB /* PermissionsSwiftUITracking in Frameworks */,
@@ -165,6 +169,7 @@
 				67F8D2052824365A00286AF3 /* Tickets.swift */,
 				67DE8C2F282AC98D00747D9D /* OrderScreen.swift */,
 				67DE8C33282AD1BF00747D9D /* PaymentScreen.swift */,
+				67821BAD2854FE75008D9D8D /* VideoScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				6745672628302A890090E9BB /* PermissionsSwiftUISiri */,
 				6745672828302A890090E9BB /* PermissionsSwiftUISpeech */,
 				6745672A28302A890090E9BB /* PermissionsSwiftUITracking */,
+				67821BB028550252008D9D8D /* YouTubePlayerKit */,
 			);
 			productName = Landmarkly;
 			productReference = 67FA7A11281F0A7900B14192 /* Landmarkly.app */;
@@ -258,6 +264,7 @@
 				6793A1CE282AE04300052D7C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				67456704283002A00090E9BB /* XCRemoteSwiftPackageReference "AlertToast" */,
 				6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */,
+				67821BAF28550252008D9D8D /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
 			);
 			productRefGroup = 67FA7A12281F0A7900B14192 /* Products */;
 			projectDirPath = "";
@@ -288,6 +295,7 @@
 				67821BAC2854D94E008D9D8D /* AllLandmarks.swift in Sources */,
 				67D7EB72281FF32A0047DF4E /* MainScreen.swift in Sources */,
 				67F8D204282434DF00286AF3 /* CabinetScreen.swift in Sources */,
+				67821BAE2854FE75008D9D8D /* VideoScreen.swift in Sources */,
 				67F8D20028241E1700286AF3 /* ItemScreen.swift in Sources */,
 				67D7EB70281FE8F40047DF4E /* RegisterScreen.swift in Sources */,
 				67F8D20228242E5300286AF3 /* Favourites.swift in Sources */,
@@ -526,6 +534,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		67821BAF28550252008D9D8D /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SvenTiigi/YouTubePlayerKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		6793A1CB282AE03400052D7C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -637,6 +653,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6745670B28302A890090E9BB /* XCRemoteSwiftPackageReference "PermissionsSwiftUI" */;
 			productName = PermissionsSwiftUITracking;
+		};
+		67821BB028550252008D9D8D /* YouTubePlayerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67821BAF28550252008D9D8D /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */;
+			productName = YouTubePlayerKit;
 		};
 		6793A1CC282AE03400052D7C /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

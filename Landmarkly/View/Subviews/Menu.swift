@@ -27,16 +27,18 @@ struct Menu: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 20, height: 20)
                     }
-                    Spacer()
-                    Button {
-                        withAnimation(.spring()) {
-                            mainViewModel.screen = "Tickets"
+                    if mainViewModel.user != nil {
+                        Spacer()
+                        Button {
+                            withAnimation(.spring()) {
+                                mainViewModel.screen = "Tickets"
+                            }
+                        } label: {
+                            Image(mainViewModel.screen == "Tickets" ? "tickets-active" : "tickets")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 16, height: 22)
                         }
-                    } label: {
-                        Image(mainViewModel.screen == "Tickets" ? "tickets-active" : "tickets")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 16, height: 22)
                     }
                     Spacer()
                     Button {

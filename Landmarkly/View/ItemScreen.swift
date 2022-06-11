@@ -187,25 +187,49 @@ struct ItemScreen: View {
                     }
 
                     Spacer()
-                    Button {
-                        withAnimation {
-                            if mainViewModel.currentLandmark?.price != 0 {
-                                mainViewModel.screen = "OrderScreen"
+                    
+                    if mainViewModel.user != nil {
+                        Button {
+                            withAnimation {
+                                if mainViewModel.currentLandmark?.price != 0 {
+                                    mainViewModel.screen = "OrderScreen"
+                                }
                             }
+                        } label: {
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: UIScreen.main.bounds.width - 95, height: 50)
+                                .foregroundColor(Color("pinkColor"))
+                                .shadow(color: Color("pinkColor").opacity(0.4), radius: 5, x: 0, y: 2)
+                                .overlay(
+                                    Text(mainViewModel.currentLandmark?.price == 0 ? "Билет не требуется" : "Купить билет")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.white)
+                                        .font(.system(size: 16))
+                                    ,
+                                    alignment: .center
+                                )
                         }
-                    } label: {
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(width: UIScreen.main.bounds.width - 95, height: 50)
-                            .foregroundColor(Color("pinkColor"))
-                            .shadow(color: Color("pinkColor").opacity(0.4), radius: 5, x: 0, y: 2)
-                            .overlay(
-                                Text(mainViewModel.currentLandmark?.price == 0 ? "Билет не требуется" : "Купить билет")
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 16))
-                                ,
-                                alignment: .center
-                            )
+                    } else {
+                        Button {
+                            withAnimation {
+                                if mainViewModel.currentLandmark?.price != 0 {
+                                    mainViewModel.screen = "RegisterScreen"
+                                }
+                            }
+                        } label: {
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: UIScreen.main.bounds.width - 95, height: 50)
+                                .foregroundColor(Color("pinkColor"))
+                                .shadow(color: Color("pinkColor").opacity(0.4), radius: 5, x: 0, y: 2)
+                                .overlay(
+                                    Text(mainViewModel.currentLandmark?.price == 0 ? "Билет не требуется" : "Авторизуйтесь для покупки")
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.white)
+                                        .font(.system(size: 16))
+                                    ,
+                                    alignment: .center
+                                )
+                        }
                     }
 
                 }
