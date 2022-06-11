@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct OrderScreen: View {
     @EnvironmentObject var mainViewModel : MainViewModel
-    @State private var date = Date()
     let dateRange: ClosedRange<Date> = {
         let calendar = Calendar.current
-        let startComponents = DateComponents(year: 2022, month: 1, day: 1)
+        let startComponents = DateComponents(year: 2022, month: calendar.component(.month, from: Date()), day: calendar.component(.day, from: Date()))
         let endComponents = DateComponents(year: 2022, month: 12, day: 31, hour: 23, minute: 59, second: 59)
         return calendar.date(from:startComponents)!
             ...
@@ -32,12 +32,12 @@ struct OrderScreen: View {
             
             // MARK: Item
             VStack(alignment: .leading, spacing: 5) {
-                Image("image")
+                KFImage(URL(string: "http://194.67.104.237:3000?id=\(mainViewModel.currentLandmark?.images[0] ?? "")"))
                     .resizable()
                     .frame(width: UIScreen.main.bounds.width - 80, height: 140)
                     .aspectRatio(contentMode: .fill)
                     .cornerRadius(10)
-                Text("Памятник погибшим в ВОВ")
+                Text(mainViewModel.currentLandmark?.name ?? "")
                     .fontWeight(.bold)
                     .font(.system(size: 19))
                     .foregroundColor(Color("darkblueColor"))
@@ -46,7 +46,7 @@ struct OrderScreen: View {
                         .resizable()
                         .frame(width: 13, height: 15)
                         .aspectRatio(contentMode: .fit)
-                    Text("c. Аксаково, ул. Аксаковская")
+                    Text(mainViewModel.currentLandmark?.address ?? "")
                         .fontWeight(.regular)
                         .foregroundColor(Color("darkblueColor"))
                         .font(.system(size: 13))
@@ -60,9 +60,9 @@ struct OrderScreen: View {
             
             DatePicker(
                 "Дата и время",
-                 selection: $date,
+                selection: $mainViewModel.date,
                  in: dateRange,
-                 displayedComponents: [.date, .hourAndMinute]
+                 displayedComponents: [.date]
             )
             .datePickerStyle(GraphicalDatePickerStyle())
             .padding(.top, 30)
@@ -73,7 +73,7 @@ struct OrderScreen: View {
                 
                 Spacer()
                 
-                Picker("Количество билетов", selection: $numberOfTickets) {
+                Picker("Количество билетов", selection: $mainViewModel.numberOfTickets) {
                     ForEach((1..<10)) {
                         Text("\($0)")
                     }
@@ -108,7 +108,9 @@ struct OrderScreen: View {
         .overlay(
             HStack {
                 Button {
-                    mainViewModel.screen = "ItemScreen"
+                    withAnimation(.spring()) {
+                        mainViewModel.screen = "ItemScreen"
+                    }
                 } label: {
                     Circle()
                         .frame(width: 50, height: 50)

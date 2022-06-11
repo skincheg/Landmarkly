@@ -15,68 +15,81 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
-                VStack {
-                    if (mainViewModel.user == nil) {
-                        if mainViewModel.screen == "OnBoardingScreen" {
-                            OnBoardingScreen()
-                                .environmentObject(mainViewModel)
+                ScrollViewReader { value in
+                    VStack {
+                        if (mainViewModel.user == nil) {
+                            if mainViewModel.screen == "OnBoardingScreen" {
+                                OnBoardingScreen()
+                                    .environmentObject(mainViewModel)
+                            }
+                            if mainViewModel.screen == "OnBoardingScreenLogin" {
+                                OnBoardingScreenLogin()
+                                    .environmentObject(mainViewModel)
+                            }
+                            if mainViewModel.screen == "RegisterScreen" {
+                                RegisterScreen()
+                                    .environmentObject(mainViewModel)
+                            }
+                        } else {
+                            if mainViewModel.screen == "MainScreen" {
+                                MainScreen()
+                                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                                    .padding(.bottom, 100)
+                                    .environmentObject(mainViewModel)
+                            }
+                            if mainViewModel.screen == "ItemScreen" {
+                                ItemScreen()
+                                    .environmentObject(mainViewModel)
+                            }
+                            if mainViewModel.screen == "Favourites" {
+                                FavouritesScreen()
+                                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                                    .padding(.bottom, 100)
+                                    .environmentObject(mainViewModel)
+                            }
+                            if mainViewModel.screen == "CabinetScreen" {
+                                CabinetScreen()
+                                    .environmentObject(mainViewModel)
+                            }
+                            if mainViewModel.screen == "Tickets" {
+                                Tickets()
+                                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                                    .padding(.bottom, 100)
+                                    .environmentObject(mainViewModel)
+                            }
+                            if mainViewModel.screen == "OrderScreen" {
+                                OrderScreen()
+                                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                                    .padding(.bottom, 100)
+                                    .environmentObject(mainViewModel)
+                            }
+                            if mainViewModel.screen == "PaymentScreen" {
+                                PaymentScreen()
+                                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                                    .environmentObject(mainViewModel)
+                            }
+                            if mainViewModel.screen == "AllLandmarks" {
+                                AllLandmarks()
+                                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                                    .environmentObject(mainViewModel)
+                            }
                         }
-                        if mainViewModel.screen == "OnBoardingScreenLogin" {
-                            OnBoardingScreenLogin()
-                                .environmentObject(mainViewModel)
-                        }
-                        if mainViewModel.screen == "RegisterScreen" {
-                            RegisterScreen()
-                                .environmentObject(mainViewModel)
-                        }
-                    } else {
-                        if mainViewModel.screen == "MainScreen" {
-                            MainScreen()
-                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                                .padding(.bottom, 100)
-                                .environmentObject(mainViewModel)
-                        }
-                        if mainViewModel.screen == "ItemScreen" {
-                            ItemScreen()
-                                .environmentObject(mainViewModel)
-                        }
-                        if mainViewModel.screen == "Favourites" {
-                            FavouritesScreen()
-                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                                .padding(.bottom, 100)
-                                .environmentObject(mainViewModel)
-                        }
-                        if mainViewModel.screen == "CabinetScreen" {
-                            CabinetScreen()
-                                .environmentObject(mainViewModel)
-                        }
-                        if mainViewModel.screen == "Tickets" {
-                            Tickets()
-                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                                .padding(.bottom, 100)
-                                .environmentObject(mainViewModel)
-                        }
-                        if mainViewModel.screen == "OrderScreen" {
-                            OrderScreen()
-                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                                .padding(.bottom, 100)
-                                .environmentObject(mainViewModel)
-                        }
-                        if mainViewModel.screen == "PaymentScreen" {
-                            PaymentScreen()
-                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                                .environmentObject(mainViewModel)
+                    }
+                    .id(1)
+                    .onChange(of: mainViewModel.screen) { newValue in
+                        withAnimation(.spring()) {
+                            value.scrollTo(1, anchor: .top)
                         }
                     }
                 }
             }
             
-            if mainViewModel.screen != "ItemScreen" && mainViewModel.screen != "OnBoardingScreen" && mainViewModel.screen != "OnBoardingScreenLogin" && mainViewModel.screen != "RegisterScreen" && mainViewModel.screen != "OrderScreen" && mainViewModel.screen != "PaymentScreen" {
+            if mainViewModel.screen != "ItemScreen" && mainViewModel.screen != "OnBoardingScreen" && mainViewModel.screen != "OnBoardingScreenLogin" && mainViewModel.screen != "RegisterScreen" && mainViewModel.screen != "OrderScreen" && mainViewModel.screen != "PaymentScreen" && mainViewModel.screen != "AllLandmarks" {
                 Menu()
                     .environmentObject(mainViewModel)
             }
             
-            if mainViewModel.screen != "ItemScreen" && mainViewModel.screen != "OnBoardingScreen" && mainViewModel.screen != "OnBoardingScreenLogin" && mainViewModel.screen != "RegisterScreen" && mainViewModel.screen != "OrderScreen" && mainViewModel.screen != "PaymentScreen" {
+            if mainViewModel.screen != "ItemScreen" && mainViewModel.screen != "OnBoardingScreen" && mainViewModel.screen != "OnBoardingScreenLogin" && mainViewModel.screen != "RegisterScreen" && mainViewModel.screen != "OrderScreen" && mainViewModel.screen != "PaymentScreen" && mainViewModel.screen != "AllLandmarks" && mainViewModel.screen != "CabinetScreen" {
                 HStack {
                     Image("profile-image")
                         .resizable()
@@ -92,21 +105,6 @@ struct ContentView: View {
                             .foregroundColor(Color("darkblueColor"))
                     }
                     Spacer()
-                    Button {
-                        
-                    } label: {
-                        Circle()
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(.white)
-                            .shadow(color: Color("pinkColor").opacity(0.3), radius: 5, x: 0, y: 2)
-                            .overlay(
-                                Image("notification")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 20, height: 20)
-                            )
-                    }
-
                 }
                 .frame(width: UIScreen.main.bounds.width - 60)
                 .background(Capsule().foregroundColor(.white))

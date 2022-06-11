@@ -33,7 +33,7 @@ struct ItemScreen: View {
                     TabView(selection: $imageSelection) {
                         if ((mainViewModel.currentLandmark?.images.count) != 0) {
                             ForEach(mainViewModel.currentLandmark?.images ?? [], id: \.self) { image in
-                                KFImage(URL(string: "https://diplom-app-skinxcheg.herokuapp.com?id=\(image)"))
+                                KFImage(URL(string: "http://194.67.104.237:3000?id=\(image)"))
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: UIScreen.main.bounds.width - 30, height: 330)
@@ -189,7 +189,9 @@ struct ItemScreen: View {
                     Spacer()
                     Button {
                         withAnimation {
-                            mainViewModel.screen = "OrderScreen"
+                            if mainViewModel.currentLandmark?.price != 0 {
+                                mainViewModel.screen = "OrderScreen"
+                            }
                         }
                     } label: {
                         RoundedRectangle(cornerRadius: 10)
@@ -197,7 +199,7 @@ struct ItemScreen: View {
                             .foregroundColor(Color("pinkColor"))
                             .shadow(color: Color("pinkColor").opacity(0.4), radius: 5, x: 0, y: 2)
                             .overlay(
-                                Text("Купить билет")
+                                Text(mainViewModel.currentLandmark?.price == 0 ? "Билет не требуется" : "Купить билет")
                                     .fontWeight(.bold)
                                     .foregroundColor(.white)
                                     .font(.system(size: 16))
@@ -216,7 +218,9 @@ struct ItemScreen: View {
             .overlay(
                 HStack {
                     Button {
-                        mainViewModel.screen = mainViewModel.prevScreen
+                        withAnimation(.spring()) {
+                            mainViewModel.screen = mainViewModel.prevScreen
+                        }
                     } label: {
                         Circle()
                             .frame(width: 50, height: 50)
@@ -232,20 +236,6 @@ struct ItemScreen: View {
                             )
                     }
                     Spacer()
-                    Button {
-                        
-                    } label: {
-                        Circle()
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(.white)
-                            .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
-                            .overlay(
-                                Image("notification")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 20, height: 20)
-                            )
-                    }
                 }
                     .padding(.top, 40)
                     .padding(.horizontal, 25)
@@ -340,7 +330,7 @@ struct MapView: UIViewRepresentable {
   class MapViewCoordinator: NSObject, MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
       let renderer = MKPolylineRenderer(overlay: overlay)
-      renderer.strokeColor = .systemBlue
+        renderer.strokeColor = UIColor(Color("pinkColor"))
       renderer.lineWidth = 5
       return renderer
     }

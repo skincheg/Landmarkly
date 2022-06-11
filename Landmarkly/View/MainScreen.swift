@@ -23,7 +23,7 @@ struct MainScreen: View {
                     .padding(.top, 40)
                     .overlay(
                         Button {
-                            
+                            mainViewModel.showDiscount = true
                         } label: {
                             HStack {
                                 VStack {
@@ -60,6 +60,7 @@ struct MainScreen: View {
                             )
                             .padding(.top, 180)
                         }
+                            .frame(width: UIScreen.main.bounds.width - 130, height: 70)
                     )
                 
                 HStack {
@@ -68,58 +69,68 @@ struct MainScreen: View {
                         .foregroundColor(Color("darkblueColor"))
                         .font(.system(size: 24))
                     Spacer()
-                    Text("Все")
-                        .fontWeight(.light)
-                        .foregroundColor(Color("darkblueColor"))
-                        .font(.system(size: 14))
+                    Button {
+                        withAnimation(.spring()) {
+                            mainViewModel.prevScreen = "MainScreen"
+                            mainViewModel.screen = "AllLandmarks"
+                        }
+                    } label: {
+                        Text("Все")
+                            .fontWeight(.light)
+                            .foregroundColor(Color("darkblueColor"))
+                            .font(.system(size: 14))
+                    }
+
                 }
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(alignment: .center, spacing: 0) {
                         ForEach(mainViewModel.landmarks, id: \.id) { landmark in
-                            VStack(alignment: .leading, spacing: 0) {
-                                KFImage(URL(string: (landmark.images.first != nil) ? "https://diplom-app-skinxcheg.herokuapp.com?id=\(landmark.images.first ?? "")" : "http://placehold.jp/25/FF5F94/ffffff/\(Int(UIScreen.main.bounds.width - 100))x150.png"))
-                                    .resizable()
-                                    .frame(width: UIScreen.main.bounds.width - 100, height: 150)
-                                    .aspectRatio(contentMode: .fill)
-                                    .cornerRadius(10)
-                                HStack {
-                                    Text(landmark.name)
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color("darkblueColor"))
-                                        .font(.system(size: 18))
-                                        .padding(.top, 10)
-                                    Spacer()
-                                }
-                                HStack {
-                                    Image("location")
+                            if (landmark.popular ?? false) {
+                                VStack(alignment: .leading, spacing: 0) {
+                                    KFImage(URL(string: (landmark.images.first != nil) ? "http://194.67.104.237:3000?id=\(landmark.images.first ?? "")" : "http://placehold.jp/25/FF5F94/ffffff/\(Int(UIScreen.main.bounds.width - 100))x150.png"))
                                         .resizable()
-                                        .frame(width: 13, height: 16)
-                                        .aspectRatio(contentMode: .fit)
-                                    Text(landmark.address)
-                                        .fontWeight(.light)
-                                        .foregroundColor(Color("darkblueColor"))
-                                        .font(.system(size: 14))
-                                    Spacer()
+                                        .frame(width: UIScreen.main.bounds.width - 100, height: 150)
+                                        .aspectRatio(contentMode: .fill)
+                                        .cornerRadius(10)
+                                    HStack {
+                                        Text(landmark.name)
+                                            .fontWeight(.bold)
+                                            .foregroundColor(Color("darkblueColor"))
+                                            .font(.system(size: 18))
+                                            .padding(.top, 10)
+                                        Spacer()
+                                    }
+                                    HStack {
+                                        Image("location")
+                                            .resizable()
+                                            .frame(width: 13, height: 16)
+                                            .aspectRatio(contentMode: .fit)
+                                        Text(landmark.address)
+                                            .fontWeight(.light)
+                                            .foregroundColor(Color("darkblueColor"))
+                                            .font(.system(size: 14))
+                                        Spacer()
+                                    }
+                                    .padding(.top, 0)
                                 }
-                                .padding(.top, 0)
-                            }
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 10)
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .foregroundColor(Color("blueColor").opacity(0.4))
-                                    .frame(width: UIScreen.main.bounds.width - 70, height: 65)
-                                ,
-                                alignment: .bottom
-                            )
-                            .frame(maxWidth: UIScreen.main.bounds.width - 70)
-                            .padding(.leading, 30)
-                            .onTapGesture {
-                                withAnimation(.spring()) {
-                                    mainViewModel.currentLandmark = landmark
-                                    mainViewModel.prevScreen = "MainScreen"
-                                    mainViewModel.screen = "ItemScreen"
+                                .padding(.vertical, 10)
+                                .padding(.horizontal, 10)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundColor(Color("blueColor").opacity(0.4))
+                                        .frame(width: UIScreen.main.bounds.width - 70, height: 65)
+                                    ,
+                                    alignment: .bottom
+                                )
+                                .frame(maxWidth: UIScreen.main.bounds.width - 70)
+                                .padding(.leading, 30)
+                                .onTapGesture {
+                                    withAnimation(.spring()) {
+                                        mainViewModel.currentLandmark = landmark
+                                        mainViewModel.prevScreen = "MainScreen"
+                                        mainViewModel.screen = "ItemScreen"
+                                    }
                                 }
                             }
                         }
@@ -137,6 +148,85 @@ struct MainScreen: View {
                 
             }
 
+        }
+        .sheet(isPresented: $mainViewModel.showDiscount) {
+            VStack {
+                
+                ZStack {
+                    
+                    VStack {
+                        HStack {
+                            Text("Специальные предложения для тебя")
+                                .fontWeight(.bold)
+                                .font(.system(size: 18))
+                                .foregroundColor(Color("darkblueColor"))
+                            Spacer()
+                        }
+                        
+                        ScrollView(.vertical, showsIndicators: false) {
+                            VStack(spacing: 20) {
+                                ForEach(mainViewModel.landmarks, id: \.id) { landmark in
+                                    // MARK: Item
+                                    if landmark.price > 0 {
+                                        VStack(spacing: 5) {
+                                            KFImage(URL(string: (landmark.images.first != nil) ? "http://194.67.104.237:3000?id=\(landmark.images.first ?? "")" : "http://placehold.jp/25/FF5F94/ffffff/\(Int(UIScreen.main.bounds.width - 80))x140.png"))
+                                                .resizable()
+                                                .frame(width: UIScreen.main.bounds.width - 80, height: 140)
+                                                .aspectRatio(contentMode: .fill)
+                                                .cornerRadius(10)
+                                            HStack {
+                                                Text(landmark.name)
+                                                    .fontWeight(.bold)
+                                                    .font(.system(size: 19))
+                                                    .foregroundColor(Color("darkblueColor"))
+                                                Spacer()
+                                            }
+                                            HStack {
+                                                Image("location")
+                                                    .resizable()
+                                                    .frame(width: 13, height: 15)
+                                                    .aspectRatio(contentMode: .fit)
+                                                Text(landmark.address)
+                                                    .fontWeight(.regular)
+                                                    .foregroundColor(Color("darkblueColor"))
+                                                    .font(.system(size: 13))
+                                                Spacer()
+                                            }
+                                            HStack {
+                                                Image("tickets")
+                                                    .resizable()
+                                                    .frame(width: 13, height: 15)
+                                                    .aspectRatio(contentMode: .fit)
+                                                Text("₽\(landmark.price)")
+                                                    .fontWeight(.regular)
+                                                    .foregroundColor(Color("darkblueColor"))
+                                                    .font(.system(size: 13))
+                                                Spacer()
+                                            }
+                                        }
+                                        .frame(width: UIScreen.main.bounds.width - 60, height: 200)
+                                        .padding(.horizontal, 10)
+                                        .padding(.vertical, 10)
+                                        .background(Color("blueColor").opacity(0.2))
+                                        .cornerRadius(10)
+                                        .onTapGesture {
+                                            withAnimation(.spring()) {
+                                                mainViewModel.currentLandmark = landmark
+                                                mainViewModel.prevScreen = "MainScreen"
+                                                mainViewModel.screen = "ItemScreen"
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                    .padding(.top, 50)
+                }
+            
+            }
+            .padding(.horizontal, 20)
         }
     }
 }

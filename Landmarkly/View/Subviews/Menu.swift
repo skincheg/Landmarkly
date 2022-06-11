@@ -55,7 +55,7 @@ struct Menu: View {
                             mainViewModel.screen = "CabinetScreen"
                         }
                     } label: {
-                        Image(mainViewModel.screen == "CabinetScreen" ? "user" : "user1")
+                        Image(mainViewModel.screen == "CabinetScreen" ? "map-active" : "map")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 20, height: 22)

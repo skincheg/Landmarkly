@@ -14,8 +14,9 @@ struct PaymentScreen: View {
     var body: some View {
         VStack {
             Image("onBoardingImage2")
-                .frame(width: UIScreen.main.bounds.width - 100)
+                .resizable()
                 .aspectRatio(contentMode: .fit)
+                .frame(width: UIScreen.main.bounds.width - 100)
             Text(status)
                 .fontWeight(.bold)
                 .foregroundColor(Color("darkblueColor"))
@@ -25,12 +26,16 @@ struct PaymentScreen: View {
                 .frame(width: 70, height: 70)
         }
         .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                withAnimation {
-                    status = "Оплата принята, спасибо"
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    mainViewModel.screen = "MainScreen"
+            withAnimation(.spring()) {
+                mainViewModel.buyLandmark {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        status = "Оплата принята, спасибо"
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            mainViewModel.screen = "MainScreen"
+                        }
+                    }
+                } error: { errors in
+                    print(errors)
                 }
             }
         }
