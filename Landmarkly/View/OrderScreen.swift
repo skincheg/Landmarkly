@@ -18,7 +18,7 @@ struct OrderScreen: View {
             ...
             calendar.date(from:endComponents)!
     }()
-    @State var numberOfTickets = 0
+    @State var numberOfTickets = 2
     var body: some View {
         VStack {
             HStack {

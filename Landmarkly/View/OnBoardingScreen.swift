@@ -12,12 +12,10 @@ struct OnBoardingScreen: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(alignment: .center, spacing: 0) {
-                Image("logo")
-                    .resizable()
-                    .frame(width: 38, height: 28)
-                Text("Landmarkly")
+                Text("НАВИГАТОР ПО ИСТОРИЧЕСКИМ ДОСТОПРИМЕЧАТЕЛЬНОСТЯМ БУГУРУСЛАНСКОГО РАЙОНА")
                     .fontWeight(.bold)
                     .foregroundColor(Color("pinkColor"))
+                    .font(.system(size: 13))
                     .padding(.leading, 10)
                 Spacer()
             }

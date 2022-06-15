@@ -118,12 +118,16 @@ struct ContentView: View {
                 .frame(width: UIScreen.main.bounds.width - 60)
                 .background(Capsule().foregroundColor(.white))
                 .position(x: UIScreen.main.bounds.width / 2 - 5, y: 65)
+                .onTapGesture {
+                    if mainViewModel.user == nil {
+                        mainViewModel.screen = "OnBoardingScreen"
+                    }
+                }
             }
         }
         .ignoresSafeArea(.all, edges: .all)
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         .preferredColorScheme(.light)
-        .JMModal(showModal: $isShowModal, for: [.location])
         
         .onAppear {
             if didLaunchBefore {

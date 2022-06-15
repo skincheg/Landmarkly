@@ -90,7 +90,7 @@ class MainViewModel : ObservableObject {
             "price": currentLandmark?.price ?? "",
             "date": dateFormatter.string(from: date),
             "userId": user?.userID ?? "",
-            "count": numberOfTickets,
+            "count": numberOfTickets + 1,
         ]
         AF.request(getUrl(path: "/landmarks/buy"), method: .post, parameters: parameters, encoding: URLEncoding.default)
             .responseDecodable(of: OrderData.self) { res in
